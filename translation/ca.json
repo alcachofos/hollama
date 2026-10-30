@@ -1229,7 +1229,8 @@
 			"target": "",
 			"context": "Heading of the Data management panel in Settings, above the list of data categories (servers, preferences, sessions, knowledge). Hard-coded as a <strong> element.",
 			"placeholders": [],
-			"locations": ["src/routes/settings/DataManagement.svelte"]
+			"locations": ["src/routes/settings/DataManagement.svelte"],
+			"decision": "CONFIRMED app-owned UI string: migrate into the English dictionary and translate in Phase B."
 		},
 		{
 			"proposedKey": "unknownError",
@@ -1237,7 +1238,8 @@
 			"target": "",
 			"context": "Fallback toast description when importing a data file fails and the thrown value is not an Error instance. Hard-coded string literal in the toast.error call.",
 			"placeholders": [],
-			"locations": ["src/routes/settings/DataManagement.svelte"]
+			"locations": ["src/routes/settings/DataManagement.svelte"],
+			"decision": "CONFIRMED app-owned UI string: migrate into the English dictionary and translate in Phase B."
 		},
 		{
 			"proposedKey": "localStorageIsFull",
@@ -1245,7 +1247,8 @@
 			"target": "",
 			"context": "Warning toast title shown when saving to localStorage fails with a quota error.",
 			"placeholders": [],
-			"locations": ["src/lib/localStorage.ts"]
+			"locations": ["src/lib/localStorage.ts"],
+			"decision": "CONFIRMED app-owned UI string: migrate into the English dictionary and translate in Phase B."
 		},
 		{
 			"proposedKey": "localStorageFullDescription",
@@ -1253,7 +1256,8 @@
 			"target": "",
 			"context": "Toast description shown together with the \"Local storage is full\" warning when the browser storage quota is exceeded.",
 			"placeholders": [],
-			"locations": ["src/lib/localStorage.ts"]
+			"locations": ["src/lib/localStorage.ts"],
+			"decision": "CONFIRMED app-owned UI string: migrate into the English dictionary and translate in Phase B."
 		},
 		{
 			"proposedKey": "localStorageSaveFailed",
@@ -1261,7 +1265,8 @@
 			"target": "",
 			"context": "Warning toast title shown when saving to localStorage fails for a reason other than the quota; the description shows the raw error message.",
 			"placeholders": [],
-			"locations": ["src/lib/localStorage.ts"]
+			"locations": ["src/lib/localStorage.ts"],
+			"decision": "CONFIRMED app-owned UI string: migrate into the English dictionary and translate in Phase B."
 		},
 		{
 			"proposedKey": "mainNavigation",
@@ -1269,7 +1274,8 @@
 			"target": "",
 			"context": "Accessible label (aria-label) of the main sidebar navigation landmark; read by screen readers.",
 			"placeholders": [],
-			"locations": ["src/lib/components/CollapsibleSidebar.svelte"]
+			"locations": ["src/lib/components/CollapsibleSidebar.svelte"],
+			"decision": "CONFIRMED app-owned accessibility label: migrate into the English dictionary and translate in Phase B."
 		},
 		{
 			"proposedKey": "contentSections",
@@ -1277,7 +1283,8 @@
 			"target": "",
 			"context": "Accessible label (aria-label) of the sidebar tablist that switches between Sessions and Knowledge; read by screen readers.",
 			"placeholders": [],
-			"locations": ["src/lib/components/CollapsibleSidebar.svelte"]
+			"locations": ["src/lib/components/CollapsibleSidebar.svelte"],
+			"decision": "CONFIRMED app-owned accessibility label: migrate into the English dictionary and translate in Phase B."
 		},
 		{
 			"proposedKey": "hollamaLogo",
@@ -1285,7 +1292,17 @@
 			"target": "",
 			"context": "Alternative text of the Hollama logo image in the sidebar. The product name Hollama must stay unchanged.",
 			"placeholders": [],
-			"locations": ["src/lib/components/CollapsibleSidebar.svelte"]
+			"locations": ["src/lib/components/CollapsibleSidebar.svelte"],
+			"decision": "CONFIRMED app-owned image alt text: migrate into the English dictionary and translate in Phase B."
+		},
+		{
+			"proposedKey": "motd",
+			"source": "`2026-10-05`\n\n### Message of the day\n\n# Welcome to Hollama: a simple web interface for [Ollama](https://ollama.ai)\n\n#### What's new?\n\n- **Reasoning is back** for thinking models like `qwen3` and `gpt-oss`, on Ollama and OpenAI-compatible servers. Thanks [@AndSDev](https://github.com/AndSDev)!\n- **Italian and Georgian translations**, thanks to [@Manu-sh](https://github.com/Manu-sh) and [@EkaterinePapava](https://github.com/EkaterinePapava).\n- **Multiple tabs stay in sync** and no longer overwrite each other's sessions.\n- **Desktop app** opens links in your browser, and the download is less than half the size.\n\n#### Previously, in Hollama\n\n- **Submit images as prompts** without entering text.\n- **Redesigned sidebar navigation** with improved accessibility and mobile experience.\n- **Copy & paste images** directly into the prompt field for quick image attachments.\n- **Improved stop completion** now preserves partial responses instead of discarding them.\n\n#### Community Resources\n\n- [Deploying Hollama & Ollama on Kubernetes](https://github.com/prudhvikrishnap/h-ollama-on-k8s/blob/main/guide.md) by [@prudhvikrishnap](https://github.com/prudhvikrishnap/h-ollama-on-k8s/commits?author=prudhvikrishnap)\n\n#### Contributions\n\nWe welcome contributions from people familiar with **Svelte**, **TypeScript** and **TailwindCSS**.\nIf that sparks your interest, read this next: [`CONTRIBUTING.md`](https://github.com/fmaclen/hollama/blob/main/CONTRIBUTING.md)\n\n#### About\n\nCreated by [@fmaclen](https://fernando.is), made with the help of [contributors](https://github.com/fmaclen/hollama/graphs/contributors)",
+			"target": "",
+			"context": "Body of the /motd page (Message of the day). Confirmed in scope: the whole Markdown document is user-facing content that should be translated, including headings, list items and surrounding prose. Links, names, handles and the date line must stay unchanged. Phase B serves a per-locale markdown file rather than a dictionary key.",
+			"placeholders": [],
+			"locations": ["src/routes/motd/motd.md", "src/routes/motd/+page.svelte"],
+			"decision": "CONFIRMED: include in the translation scope. Translate the Markdown prose only; keep URLs, handles and the ISO date line unchanged."
 		}
 	],
 	"reviewNotes": [
@@ -1297,32 +1314,38 @@
 				"src/lib/sessions.ts",
 				"src/lib/components/CollapsibleSidebar.svelte",
 				"src/routes/knowledge/[id]/+page.svelte"
-			]
+			],
+			"decision": "CONFIRMED (Phase B): add the date-fns `ca` locale and map the active UI locale to it so relative timestamps are localized."
 		},
 		{
 			"topic": "app.html lang attribute",
 			"note": "src/app.html hard-codes <html lang=\"en\"> and the static <title>Hollama</title>. Phase B should consider setting lang dynamically when the locale changes. Not a translatable dictionary entry.",
-			"locations": ["src/app.html", "src/routes/+layout.svelte"]
+			"locations": ["src/app.html", "src/routes/+layout.svelte"],
+			"decision": "CONFIRMED (Phase B): set <html lang> from the active locale. The document title stays the brand name \"Hollama\"; it is not translated."
 		},
 		{
 			"topic": "Language names in the language selector",
 			"note": "Settings › Interface lists each language by its own native name (English, Deutsch, 中文 (简体), Español, ...). These look like translatable strings but are intentionally not translated; Catalan should be added as 'Català'. Left out of the export on purpose.",
-			"locations": ["src/routes/settings/Interface.svelte"]
+			"locations": ["src/routes/settings/Interface.svelte"],
+			"decision": "CONFIRMED: language names stay in their native form and out of the export. Phase B adds Catalan as \"Català\"."
 		},
 		{
 			"topic": "Example placeholder values in Connection settings",
 			"note": "The model filter input uses the fixed placeholder 'gpt' and the label input uses 'my-llama-server'. Both are example values rather than prose, so they are not exported; decide in Phase B whether they should become translatable or stay fixed.",
-			"locations": ["src/routes/settings/Connection.svelte"]
+			"locations": ["src/routes/settings/Connection.svelte"],
+			"decision": "CONFIRMED: keep \"gpt\" and \"my-llama-server\" unchanged. They stay out of the export and are not parameterized."
 		},
 		{
 			"topic": "GitHub link label in the sidebar",
 			"note": "The sidebar renders a link with the literal text 'GitHub'. It is a product name and is intentionally not translatable.",
-			"locations": ["src/lib/components/CollapsibleSidebar.svelte"]
+			"locations": ["src/lib/components/CollapsibleSidebar.svelte"],
+			"decision": "CONFIRMED: \"GitHub\" stays untranslated as a product name."
 		},
 		{
 			"topic": "Message of the day content",
 			"note": "The /motd page renders src/routes/motd/motd.md, which is authored English content, not interface chrome. It is user-facing but out of scope for the dictionary; the project would need a content-translation decision (per-locale markdown) if it should be localized.",
-			"locations": ["src/routes/motd/motd.md", "src/routes/motd/+page.svelte"]
+			"locations": ["src/routes/motd/motd.md", "src/routes/motd/+page.svelte"],
+			"decision": "CONFIRMED (Phase B): include the /motd content. Its body is exported as the \"motd\" entry in unmanagedUiStrings so it is translated with everything else; Phase B serves a per-locale markdown file."
 		},
 		{
 			"topic": "Server and protocol-provided messages",
@@ -1330,22 +1353,26 @@
 			"locations": [
 				"src/routes/settings/ollama/PullModel.svelte",
 				"src/routes/sessions/[id]/+page.svelte"
-			]
+			],
+			"decision": "CONFIRMED: only app-owned strings are translated. Ollama pull statuses, response.error values and raw error.toString() output stay in English."
 		},
 		{
 			"topic": "Thrown error messages in the chat layer",
 			"note": "src/lib/chat/ollama.ts throws English Error messages such as 'Ollama response is missing body', 'Failed to fetch Ollama tags' and 'Failed to parse Ollama tags'. They are developer-facing but can reach the UI through error.toString() in the chat error toast description. Decide whether to translate them as technical detail or keep them in English.",
-			"locations": ["src/lib/chat/ollama.ts", "src/routes/sessions/[id]/+page.svelte"]
+			"locations": ["src/lib/chat/ollama.ts", "src/routes/sessions/[id]/+page.svelte"],
+			"decision": "CONFIRMED (Phase B): translate the app-owned messages thrown in src/lib/chat/ollama.ts by moving them into the English dictionary. Raw upstream error text appended to them stays English."
 		},
 		{
 			"topic": "Electron shell error dialog",
 			"note": "electron/main.js shows Electron's native dialog.showErrorBox('Error', error.message). This runs outside the Svelte i18n runtime and cannot use typesafe-i18n directly; decide separately whether the desktop shell should be localized.",
-			"locations": ["electron/main.js"]
+			"locations": ["electron/main.js"],
+			"decision": "CONFIRMED (Phase B): translate the app-owned desktop error dialog. It needs a small mechanism to pass localized strings (or the active locale) into electron/main.js."
 		},
 		{
 			"topic": "Unused dictionary keys",
 			"note": "Eight keys have no use site in the current source tree and are exported unchanged so the key set stays identical to src/i18n/en/index.ts: dangerZone, disconnected, goToKnowledge, modelNotFound, noApiKey, somethingWentWrong, stopResponse, version. Confirm whether they should be translated or dropped from the English base dictionary before Phase B.",
-			"locations": []
+			"locations": [],
+			"decision": "CONFIRMED: translate all eight. They stay in the English base dictionary and in the export unchanged."
 		},
 		{
 			"topic": "Sentence fragments with inline markup",
@@ -1354,7 +1381,8 @@
 				"src/routes/settings/ollama/BaseURLHelp.svelte",
 				"src/routes/settings/Version.svelte",
 				"src/routes/settings/ollama/PullModel.svelte"
-			]
+			],
+			"decision": "CONFIRMED: keep every fragment fragment-shaped so the inline markup that follows still reads correctly. No English source change."
 		}
 	]
 }
